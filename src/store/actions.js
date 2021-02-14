@@ -34,3 +34,17 @@ export const addTask = (newTask) => {
     }
   };
 };
+
+export const deleteTask = (taskId) => {
+  return async (dispatch)=> {
+    try{
+      await axios.delete(`http://localhost:8000/todo/${taskId}`);
+      dispatch({
+        type:DELETE_TASK,
+        payload:{taskId:taskId},
+      });
+    }catch(error){
+      console.error(error);
+    }
+  }
+};
