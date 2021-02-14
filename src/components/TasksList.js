@@ -2,14 +2,17 @@ import { useSelector } from "react-redux";
 import FinishedTasks from "./FinishedTasks";
 import Taskitem from "./Taskitem";
 import UnfinshedTasks from "./UnfinshedTasks";
+import { Link, NavLink } from "react-router-dom";
 function TasksList() {
   const tasks = useSelector((state) => state.tasks);
   const tasksList = tasks.map((task) => <Taskitem task={task} key={task.id} />);
   return (
     <div className="App">
-      <button type="button" class="btn btn-primary">
-        Add New Task
-      </button>
+      <NavLink to="/AddNewTask">
+        <button type="button" class="btn btn-primary">
+          Add New Task
+        </button>
+      </NavLink>
       <table className="table">
         <thead>
           <tr>
