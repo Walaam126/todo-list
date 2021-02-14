@@ -48,3 +48,19 @@ export const deleteTask = (taskId) => {
     }
   }
 };
+
+export const updateTask = (updateTask) => {
+  console.log(updateTask);
+  return async (dispatch)=> {
+    try{
+      await axios.put(`http://localhost:8000/products/${updateTask.id}`
+      ,updateTask);
+      dispatch({
+        type:UPDATE_TASK,
+        payload:{updateTask : updateTask},
+      });
+    }catch(error){
+      console.error(error);
+    }
+  }
+};

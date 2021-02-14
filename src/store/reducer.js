@@ -27,6 +27,15 @@ const reducer = (state = initialState, action) => {
         ),
     };
 
+    case "UPDATE_TASK":
+      const { updatedTaske } = action.payload;
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+        task.id === updatedTaske.id ? updatedTaske : task
+        ),
+    };
+
     default:
       return state;
   }

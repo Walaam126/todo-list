@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/AddNewTask">
+        <Route path={"/AddNewTask"}>
          <AddNewTaskForm/>
         </Route>
 
