@@ -5,7 +5,12 @@ import UnfinshedTasks from "./UnfinshedTasks";
 import { Link, NavLink } from "react-router-dom";
 function TasksList() {
   const tasks = useSelector((state) => state.tasks);
+
   const tasksList = tasks.map((task) => <Taskitem task={task} key={task.id} />);
+  const unfinshtasksList = tasks.map((task) => {
+    if (task.status === false) return task;
+  });
+  console.log(unfinshtasksList);
   return (
     <div className="App">
       <NavLink to="/AddNewTask">
@@ -22,10 +27,7 @@ function TasksList() {
             <th scope="col">Deadline</th>
           </tr>
         </thead>
-        <tbody>
-          <FinishedTasks tasks={tasks} />
-          <UnfinshedTasks tasks={tasks} />
-        </tbody>
+        <tbody>{tasksList}</tbody>
       </table>
     </div>
   );

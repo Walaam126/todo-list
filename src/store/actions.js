@@ -6,8 +6,6 @@ export const DELETE_TASK = "DELETE_TASK";
 export const CREATE_TASK = "CREATE_TASK";
 export const UPDATE_TASK = "UPDATE_TASK";
 
-
-
 export const fetchTodos = () => {
   return async (dispatch) => {
     try {
@@ -23,17 +21,16 @@ export const fetchTodos = () => {
 };
 
 export const addTask = (newTask) => {
- // console.log(newTask);
-  return async (dispatch)=> {
-    try{
-      const res = await axios.post(`http://localhost:8000/todo`,newTask);
-      console.log(res.data);
+  // console.log(newTask);
+  return async (dispatch) => {
+    try {
+      await axios.post(`http://localhost:8000/todo`, newTask);
       dispatch({
-        type:ADD_TASK,
-        payload:{newTask:res.data},
+        type: ADD_TASK,
+        payload: { newTask },
       });
-    }catch(error){
+    } catch (error) {
       console.error(error);
     }
-  }
+  };
 };

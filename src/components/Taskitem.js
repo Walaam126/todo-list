@@ -1,5 +1,4 @@
 function Taskitem({ task }) {
-  console.log(task);
   return (
     <tr>
       <td>{task.name}</td>

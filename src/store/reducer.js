@@ -8,15 +8,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: action.payload.task,
-    };
-      
-    
+      };
+
     case "ADD_TASK":
-      const { newTask } = action.payload;
+      const newTask = action.payload.newTask;
       return {
         ...state,
         tasks: [...state.tasks, newTask],
-    };
+      };
 
     default:
       return state;
