@@ -5,12 +5,8 @@ function FinishedTasks() {
   const finshtasksList = tasks
     .filter((task) => task.status === true)
     .map((task) => <Taskitem task={task} key={task.id} />);
-     const done = finshtasksList.filter((task) => task.status === true);
-     
-  console.log(
-    "🚀 ~ file: FinishedTasks.js ~ line 6 ~ FinishedTasks ~ finshtasksList",
-    finshtasksList
-  );
+  const done = finshtasksList.filter((task) => task.status === true);
+
   return <>{finshtasksList}</>;
 }
 

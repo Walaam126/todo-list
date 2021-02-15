@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addTask } from "../store/actions";
 import { useState } from "react";
+import { Createbtn } from "../styles";
 
 function AddNewTaskForm() {
   const dispatch = useDispatch();
@@ -23,30 +24,31 @@ function AddNewTaskForm() {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <h1>Create Task</h1>
+    <form className="mt-5" onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label className="form-label">Name</label>
-        <input
-          type="text"
-          value={task.name}
-          onChange={handleChange}
-          name="name"
-          className="form-control"
-        />
+        <label className="form-label">
+          Name:
+          <input
+            type="text"
+            value={task.name}
+            onChange={handleChange}
+            name="name"
+            className="form-control"
+          />
+        </label>
       </div>
-      <div className="form-outline mb-4">
-        <label className="form-label">priority:</label>
+      <div className="form-outline mb-3">
+        <label className="col-form-label">Priority:</label>
         {"  "}
         <select
-          className="form-select"
+          className="form-select mx-auto"
           aria-label="Default select example"
           name="priority"
           onChange={handleChange}
           value={task.priority}
         >
           <option value="" selected>
-            Select priority
+            Select Priority
           </option>
           <option value="high">high</option>
           <option value="middle">middle</option>
@@ -54,25 +56,24 @@ function AddNewTaskForm() {
         </select>
       </div>
 
-      <div class="form-group row">
-        <label for="example-date-input" class="col-2 col-form-label">
-          deadlineata
-        </label>
-        <div class="col-10">
-          <input
-            class="form-control"
-            name="deadlineata"
-            type="date"
-            value={task.deadlineata}
-            onChange={handleChange}
-            id="example-date-input"
-          />
-        </div>
+      <label for="example-date-input" className="col-form-label">
+        Deadline:
+      </label>
+      <div className="col-7 mx-auto">
+        <input
+          className="form-control"
+          name="deadlineata"
+          type="date"
+          value={task.deadlineata}
+          onChange={handleChange}
+          id="example-date-input"
+        />
       </div>
+      <br></br>
 
-      <button type="submit" className="btn btn-info float-right">
+      <Createbtn type="submit" className="btn">
         Create
-      </button>
+      </Createbtn>
     </form>
   );
 }

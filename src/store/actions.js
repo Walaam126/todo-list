@@ -36,31 +36,32 @@ export const addTask = (newTask) => {
 };
 
 export const deleteTask = (taskId) => {
-  return async (dispatch)=> {
-    try{
+  return async (dispatch) => {
+    try {
       await axios.delete(`http://localhost:8000/todo/${taskId}`);
       dispatch({
-        type:DELETE_TASK,
-        payload:{taskId:taskId},
+        type: DELETE_TASK,
+        payload: { taskId: taskId },
       });
-    }catch(error){
+    } catch (error) {
       console.error(error);
     }
-  }
+  };
 };
 
-export const updateTask = (updateTask) => {
-  console.log(updateTask);
-  return async (dispatch)=> {
-    try{
-      await axios.put(`http://localhost:8000/products/${updateTask.id}`
-      ,updateTask);
+export const updateTask = (updatedTask) => {
+  return async (dispatch) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/todo/${updatedTask.id}`,
+        updatedTask
+      );
       dispatch({
-        type:UPDATE_TASK,
-        payload:{updateTask : updateTask},
+        type: UPDATE_TASK,
+        payload: { updatedTask },
       });
-    }catch(error){
+    } catch (error) {
       console.error(error);
     }
-  }
+  };
 };

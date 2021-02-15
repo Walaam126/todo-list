@@ -5,10 +5,6 @@ function UnfinshedTasks() {
   const unfinshtasksList = tasks
     .filter((task) => task.status === false)
     .map((task) => <Taskitem task={task} key={task.id} />);
-  console.log(
-    "🚀 ~ file: UnfinshedTasks.js ~ line 6 ~ UnfinshedTasks ~ unfinshtasksList",
-    unfinshtasksList
-  );
 
   return <>{unfinshtasksList}</>;
 }
