@@ -19,6 +19,11 @@ function AddNewTaskForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setTask({
+      name: "",
+      priority: "",
+      deadlineata: "",
+    });
     dispatch(addTask(task));
     history.push("/");
   };

@@ -6,15 +6,10 @@ import { Link, NavLink } from "react-router-dom";
 import AddNewTaskForm from "./AddNewTaskForm";
 function TasksList() {
   const tasks = useSelector((state) => state.tasks);
-
+  const TaskList = tasks.map((task) => <Taskitem task={task} key={task.id} />);
   return (
     <div className="App">
       <h1 className="mt-5">My To Do List</h1>
-      {/* <NavLink to="/AddNewTask">
-        <button type="button" className="btn btn-primary mt-3">
-          Add New Task
-        </button>
-      </NavLink> */}
       <div className="container mt-5">
         <div className="row justify-content-md-center">
           <div className="col-8">
@@ -27,16 +22,14 @@ function TasksList() {
                   <th scope="col">Deadline</th>
                   <th scope="col">Delete</th>
                   <th scope="col">Update</th>
-                  <th scope="col">days left</th>
-                  
                 </tr>
               </thead>
               <tbody>
-                <UnfinshedTasks /> <FinishedTasks />{" "}
+                <UnfinshedTasks /> <FinishedTasks />
               </tbody>
             </table>
           </div>
-          {/* <div className="col col-lg-2"></div> */}
+
           <div className="col-4">
             <AddNewTaskForm />{" "}
           </div>

@@ -24,10 +24,10 @@ export const addTask = (newTask) => {
   // console.log(newTask);
   return async (dispatch) => {
     try {
-      await axios.post(`http://localhost:8000/todo`, newTask);
+      const res = await axios.post(`http://localhost:8000/todo`, newTask);
       dispatch({
         type: ADD_TASK,
-        payload: { newTask },
+        payload: { newTask: res.data },
       });
     } catch (error) {
       console.error(error);
