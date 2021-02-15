@@ -27,6 +27,8 @@ function TasksList() {
                   <th scope="col">Deadline</th>
                   <th scope="col">Delete</th>
                   <th scope="col">Update</th>
+                  <th scope="col">days left</th>
+                  
                 </tr>
               </thead>
               <tbody>
